@@ -1,6 +1,11 @@
 import React from "react"
-import { createStackNavigator, createAppContainer } from "react-navigation"
+import {
+  createSwitchNavigator,
+  createStackNavigator,
+  createAppContainer
+} from "react-navigation"
 import PlaceholderView from "../components/PlaceholderView"
+import SplashScreen from "../screens/Splash"
 
 const ListPlaceholder = () => (
   <PlaceholderView
@@ -11,6 +16,16 @@ const ListPlaceholder = () => (
 const DetailsPlaceholder = () => (
   <PlaceholderView text={"There's currently no more info for this property."} />
 )
+
+const Splash = {
+  screen: ({ navigation }) => (
+    <SplashScreen
+      navigation={navigation}
+      redirectScreen="Main"
+      duration={2000}
+    />
+  )
+}
 
 const PropertyList = {
   screen: ListPlaceholder,
@@ -35,6 +50,16 @@ const RouteConfig = {
   initialRouteName: "List"
 }
 
-const Navigator = createStackNavigator(RouteScreens, RouteConfig)
+const AppNavigator = createStackNavigator(RouteScreens, RouteConfig)
 
-export default createAppContainer(Navigator)
+const LaunchNavigator = createSwitchNavigator(
+  {
+    Splash: Splash,
+    Main: AppNavigator
+  },
+  {
+    initialRouteName: "Splash"
+  }
+)
+
+export default createAppContainer(LaunchNavigator)
