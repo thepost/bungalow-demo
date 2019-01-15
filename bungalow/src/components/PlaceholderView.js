@@ -2,17 +2,19 @@ import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import PropTypes from "prop-types"
 
+import { alignment } from "../design"
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: alignment.center,
+    alignItems: alignment.center,
     padding: 20
   },
   text: {
     color: "#A3A3A3",
     fontSize: 24,
-    textAlign: "center"
+    textAlign: alignment.center
   }
 })
 
