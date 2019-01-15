@@ -1,5 +1,6 @@
 import React from "react"
 import { StyleSheet, View, ActivityIndicator, Dimensions } from "react-native"
+import { alignment } from "../../design"
 
 import PlaceholderView from "../../components/PlaceholderView"
 
@@ -7,7 +8,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "center",
+    justifyContent: alignment.center,
     marginTop: 20
   },
   placeholder: {
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
   },
   spinner: {
     flex: 2,
-    justifyContent: "flex-start"
+    justifyContent: alignment.flexStart
   }
 })
 

@@ -4,14 +4,10 @@ import {
   createStackNavigator,
   createAppContainer
 } from "react-navigation"
+
 import PlaceholderView from "../components/PlaceholderView"
 import SplashScreen from "../screens/Splash"
-
-const ListPlaceholder = () => (
-  <PlaceholderView
-    text={"There's currently no properties to display in your area."}
-  />
-)
+import PropertiesScreen from "../screens/PropertyList"
 
 const DetailsPlaceholder = () => (
   <PlaceholderView text={"There's currently no more info for this property."} />
@@ -22,13 +18,13 @@ const Splash = {
     <SplashScreen
       navigation={navigation}
       redirectScreen="Main"
-      duration={2000}
+      duration={500}
     />
   )
 }
 
 const PropertyList = {
-  screen: ListPlaceholder,
+  screen: PropertiesScreen,
   navigationOptions: () => ({
     title: `Properties`
   })
