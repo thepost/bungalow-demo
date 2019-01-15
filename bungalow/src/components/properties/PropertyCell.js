@@ -1,5 +1,13 @@
 import React, { Component } from "react"
-import { StyleSheet, View, Text, ImageBackground } from "react-native"
+import {
+  StyleSheet,
+  View,
+  Text,
+  ImageBackground,
+  TouchableOpacity
+} from "react-native"
+import PropTypes from "prop-types"
+
 import { colors, alignment, fontSizes } from "../../design"
 
 const styles = StyleSheet.create({
@@ -13,6 +21,9 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderColor: colors.lightGrey,
     backgroundColor: colors.white
+  },
+  touch: {
+    flex: 1
   },
   imageBackground: {
     flex: 1,
@@ -41,22 +52,35 @@ const styles = StyleSheet.create({
   }
 })
 
-const PropertyCell = ({ property }) => {
+const PropertyCell = ({ navigation, property }) => {
+  console.log("PropertyCell propertyID: " + property.id)
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={{
-          uri: property.images.length > 0 ? property.images[0].sm_url : ""
-        }}
-        style={styles.imageBackground}
+      <TouchableOpacity
+        style={styles.touch}
+        onPress={() =>
+          navigation.navigate("Details", { propertyID: property.id })
+        }
       >
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>From $</Text>
-          <Text style={styles.headline}>{property.headline}</Text>
-        </View>
-      </ImageBackground>
+        <ImageBackground
+          source={{
+            uri: property.images.length > 0 ? property.images[0].sm_url : ""
+          }}
+          style={styles.imageBackground}
+        >
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>From $</Text>
+            <Text style={styles.headline}>{property.headline}</Text>
+          </View>
+        </ImageBackground>
+      </TouchableOpacity>
     </View>
   )
+}
+
+PropertyCell.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  property: PropTypes.object.isRequired
 }
 
 export default PropertyCell

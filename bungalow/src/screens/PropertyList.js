@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
 })
 
 class PropertyList extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       fetching: true
     }
@@ -40,12 +40,19 @@ class PropertyList extends Component {
     return (
       <View style={styles.container}>
         {this.state.fetching ? (
-          <LoadingView />
+          <LoadingView
+            loadingText={"Finding properties to display in your area..."}
+          />
         ) : (
           <FlatList
             style={styles.list}
             data={this.state.dataSource}
-            renderItem={({ item }) => <PropertyCell property={item} />}
+            renderItem={({ item }) => (
+              <PropertyCell
+                navigation={this.props.navigation}
+                property={item}
+              />
+            )}
             keyExtractor={({ id }, index) => id.toString()}
           />
         )}
