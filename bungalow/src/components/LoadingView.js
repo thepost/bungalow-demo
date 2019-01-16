@@ -1,9 +1,9 @@
 import React from "react"
 import { StyleSheet, View, ActivityIndicator, Dimensions } from "react-native"
 import PropTypes from "prop-types"
-import { alignment } from "../../design"
+import { alignment } from "../design"
 
-import PlaceholderView from "../../components/PlaceholderView"
+import PlaceholderView from "./PlaceholderView"
 
 const styles = StyleSheet.create({
   container: {

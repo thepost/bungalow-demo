@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { StyleSheet, View, FlatList, Dimensions } from "react-native"
 import { colors } from "../design"
 
-import LoadingView from "../components/properties/LoadingView"
+import LoadingView from "../components/LoadingView"
 import PropertyCell from "../components/properties/PropertyCell"
 import requestProperties from "../api/request.properties"
 

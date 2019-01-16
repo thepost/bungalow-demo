@@ -5,17 +5,14 @@ import { WebView } from "react-native-webview"
 import { colors, fontSizes, fonts } from "../../design"
 
 const styles = StyleSheet.create({
-  descriptionContainer: {
-    flex: 1,
-    maxHeight: 240
-  },
   headline: {
     fontSize: fontSizes.body,
     color: colors.darkGrey
   },
   description: {
     marginTop: 20,
-    fontSize: fontSizes.detail
+    fontSize: fontSizes.detail,
+    height: 160
   }
 })
 
@@ -34,9 +31,9 @@ const pStyle = `
     </style>
   </head>`
 
-const PropertyDescription = ({ headline, html }) => {
+const DescriptionView = ({ headline, html }) => {
   return (
-    <View style={styles.descriptionContainer}>
+    <View>
       <Text style={styles.headline}>{headline}</Text>
       <WebView
         style={styles.description}
@@ -51,4 +48,4 @@ const PropertyDescription = ({ headline, html }) => {
   )
 }
 
-export default PropertyDescription
+export default DescriptionView
