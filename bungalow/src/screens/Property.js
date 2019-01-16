@@ -65,7 +65,7 @@ class Property extends Component {
           <ScrollView
             style={styles.scrollview}
             showsVerticalScrollIndicator={false}
-            contentInset={{ top: 0, left: 0, bottom: 40, right: 0 }}
+            contentContainerStyle={{ paddingBottom: 40 }}
           >
             <DescriptionView
               headline={this.state.dataSource.headline}
