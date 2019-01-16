@@ -14,11 +14,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "row",
-    margin: 14,
-    marginTop: 0
+    marginLeft: 14,
+    marginRight: 14
   },
   scrollview: {
-    paddingTop: 14
+    paddingTop: 14,
+    paddingBottom: 14
   }
 })
 
@@ -61,13 +62,17 @@ class Property extends Component {
         {this.state.fetching ? (
           <LoadingView loadingText={"Getting property details..."} />
         ) : (
-          <ScrollView style={styles.scrollview}>
+          <ScrollView
+            style={styles.scrollview}
+            showsVerticalScrollIndicator={false}
+            contentInset={{ top: 0, left: 0, bottom: 40, right: 0 }}
+          >
             <DescriptionView
               headline={this.state.dataSource.headline}
               html={this.state.dataSource.description_html}
             />
             <LineSeperator />
-            <PhotoThumbView />
+            <PhotoThumbView photos={this.state.dataSource.images} />
             <LineSeperator />
             <AmenitiesView
               amenities={this.state.dataSource.amenities}

@@ -23,6 +23,7 @@ const pStyle = `
         background-color: ${colors.lightGrey};
       }
       p {
+        padding: 0 10px;
         color: ${colors.white};
         font-family: ${fonts.primary};
         font-style: normal;
