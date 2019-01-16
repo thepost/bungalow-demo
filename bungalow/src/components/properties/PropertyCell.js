@@ -22,20 +22,26 @@ const styles = StyleSheet.create({
   },
   imageFilter: {
     flex: 1,
-    backgroundColor: "rgba(255,255,255,0.4)"
-  },
-  title: {
-    fontSize: fontSizes.title2,
-    color: colors.white
+    backgroundColor: "rgba(255,255,255,0.6)"
   },
   textContainer: {
     flex: 1,
     flexDirection: "column",
     padding: 8,
-    justifyContent: alignment.flexStart,
-    backgroundColor: "rgba(255,255,255,0.7)"
+    justifyContent: alignment.flexStart
+  },
+  price: {
+    fontWeight: "bold",
+    fontSize: fontSizes.title2,
+    color: colors.white
   },
   headline: {
+    fontSize: fontSizes.body,
+    color: colors.darkGrey
+  },
+  rooms: {
+    alignSelf: alignment.flexEnd,
+    padding: 8,
     fontSize: fontSizes.body,
     color: colors.darkGrey
   }
@@ -59,9 +65,14 @@ const PropertyCell = ({ property }) => {
         }}
         style={styles.imageBackground}
       >
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>{price(property.room_prices)}</Text>
-          <Text style={styles.headline}>{property.headline}</Text>
+        <View style={styles.imageFilter}>
+          <View style={styles.textContainer}>
+            <Text style={styles.price}>{price(property.room_prices)}</Text>
+            <Text style={styles.headline}>{property.headline}</Text>
+          </View>
+          <Text style={styles.rooms}>{`Rooms: ${
+            property.total_room_count
+          }`}</Text>
         </View>
       </ImageBackground>
     </View>
