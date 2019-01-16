@@ -1,5 +1,13 @@
 import React, { Component } from "react"
-import { StyleSheet, View, Text, ImageBackground } from "react-native"
+import {
+  StyleSheet,
+  View,
+  Text,
+  ImageBackground,
+  TouchableOpacity
+} from "react-native"
+import PropTypes from "prop-types"
+
 import { colors, alignment, fontSizes } from "../../design"
 
 const styles = StyleSheet.create({
@@ -11,8 +19,11 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     borderRadius: 5,
     borderWidth: 0.5,
-    borderColor: colors.lightGrey,
+    borderColor: colors.border,
     backgroundColor: colors.white
+  },
+  touch: {
+    flex: 1
   },
   imageBackground: {
     flex: 1,
@@ -36,13 +47,13 @@ const styles = StyleSheet.create({
     color: colors.white
   },
   headline: {
-    fontSize: fontSizes.body,
+    fontSize: fontSizes.detail,
     color: colors.darkGrey
   },
   rooms: {
     alignSelf: alignment.flexEnd,
     padding: 8,
-    fontSize: fontSizes.body,
+    fontSize: fontSizes.detail,
     color: colors.darkGrey
   }
 })
@@ -56,27 +67,39 @@ const price = prices => {
   return prices.length > 0 ? `From $${minPrice(prices)}` : ""
 }
 
-const PropertyCell = ({ property }) => {
+const PropertyCell = ({ navigation, property }) => {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        source={{
-          uri: property.images.length > 0 ? property.images[0].sm_url : ""
-        }}
-        style={styles.imageBackground}
+      <TouchableOpacity
+        style={styles.touch}
+        onPress={() =>
+          navigation.navigate("Details", { propertyID: property.id })
+        }
       >
-        <View style={styles.imageFilter}>
-          <View style={styles.textContainer}>
-            <Text style={styles.price}>{price(property.room_prices)}</Text>
-            <Text style={styles.headline}>{property.headline}</Text>
+        <ImageBackground
+          source={{
+            uri: property.images.length > 0 ? property.images[0].sm_url : ""
+          }}
+          style={styles.imageBackground}
+        >
+          <View style={styles.imageFilter}>
+            <View style={styles.textContainer}>
+              <Text style={styles.price}>{price(property.room_prices)}</Text>
+              <Text style={styles.headline}>{property.headline}</Text>
+            </View>
+            <Text style={styles.rooms}>{`Rooms: ${
+              property.total_room_count
+            }`}</Text>
           </View>
-          <Text style={styles.rooms}>{`Rooms: ${
-            property.total_room_count
-          }`}</Text>
-        </View>
-      </ImageBackground>
+        </ImageBackground>
+      </TouchableOpacity>
     </View>
   )
+}
+
+PropertyCell.propTypes = {
+  navigation: PropTypes.object.isRequired,
+  property: PropTypes.object.isRequired
 }
 
 export default PropertyCell

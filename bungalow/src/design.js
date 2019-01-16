@@ -20,8 +20,9 @@ const colors = {
 const fontSizes = {
   title1: 24,
   title2: 20,
-  body: 16,
-  detail: 12
+  body: 18,
+  detail: 16,
+  subdetail: 14
 }
 
 const fonts = {

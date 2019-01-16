@@ -1,8 +1,9 @@
 import React from "react"
 import { StyleSheet, View, ActivityIndicator, Dimensions } from "react-native"
-import { alignment } from "../../design"
+import PropTypes from "prop-types"
+import { alignment } from "../design"
 
-import PlaceholderView from "../../components/PlaceholderView"
+import PlaceholderView from "./PlaceholderView"
 
 const styles = StyleSheet.create({
   container: {
@@ -20,17 +21,19 @@ const styles = StyleSheet.create({
   }
 })
 
-const LoadingView = () => {
+const LoadingView = ({ loadingText }) => {
   return (
     <View style={styles.container}>
       <View style={styles.placeholder}>
-        <PlaceholderView
-          text={"Finding properties to display in your area..."}
-        />
+        <PlaceholderView text={loadingText} />
       </View>
       <ActivityIndicator size="large" style={styles.spinner} animating={true} />
     </View>
   )
+}
+
+LoadingView.propTypes = {
+  loadingText: PropTypes.string
 }
 
 export default LoadingView

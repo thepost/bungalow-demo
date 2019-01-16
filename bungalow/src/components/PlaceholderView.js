@@ -2,7 +2,7 @@ import React from "react"
 import { StyleSheet, Text, View } from "react-native"
 import PropTypes from "prop-types"
 
-import { alignment } from "../design"
+import { colors, alignment } from "../design"
 
 const styles = StyleSheet.create({
   container: {
@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     padding: 20
   },
   text: {
-    color: "#A3A3A3",
+    color: colors.lightGrey,
     fontSize: 24,
     textAlign: alignment.center
   }

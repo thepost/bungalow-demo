@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { StyleSheet, View, FlatList, Dimensions } from "react-native"
 import { colors } from "../design"
 
-import LoadingView from "../components/properties/LoadingView"
+import LoadingView from "../components/LoadingView"
 import PropertyCell from "../components/properties/PropertyCell"
 import requestProperties from "../api/request.properties"
 
@@ -18,14 +18,24 @@ const styles = StyleSheet.create({
 })
 
 class PropertyList extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       fetching: true
     }
   }
 
   componentDidMount() {
+    this.fetchProperties()
+  }
+
+  onRefresh() {
+    this.setState({ fetching: true }, () => {
+      this.fetchProperties()
+    })
+  }
+
+  fetchProperties() {
     requestProperties("Seattle")
       .then(results => {
         this.setState({
@@ -33,19 +43,32 @@ class PropertyList extends Component {
           dataSource: results
         })
       })
-      .catch(error => {})
+      .catch(error => {
+        this.setState({
+          fetching: false
+        })
+      })
   }
 
   render() {
     return (
       <View style={styles.container}>
         {this.state.fetching ? (
-          <LoadingView />
+          <LoadingView
+            loadingText={"Finding properties to display in your area..."}
+          />
         ) : (
           <FlatList
+            refreshing={this.state.fetching}
+            onRefresh={() => this.onRefresh()}
             style={styles.list}
             data={this.state.dataSource}
-            renderItem={({ item }) => <PropertyCell property={item} />}
+            renderItem={({ item }) => (
+              <PropertyCell
+                navigation={this.props.navigation}
+                property={item}
+              />
+            )}
             keyExtractor={({ id }, index) => id.toString()}
           />
         )}
