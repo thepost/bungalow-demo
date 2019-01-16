@@ -26,6 +26,16 @@ class PropertyList extends Component {
   }
 
   componentDidMount() {
+    this.fetchProperties()
+  }
+
+  onRefresh() {
+    this.setState({ fetching: true }, () => {
+      this.fetchProperties()
+    })
+  }
+
+  fetchProperties() {
     requestProperties("Seattle")
       .then(results => {
         this.setState({
@@ -33,7 +43,11 @@ class PropertyList extends Component {
           dataSource: results
         })
       })
-      .catch(error => {})
+      .catch(error => {
+        this.setState({
+          fetching: false
+        })
+      })
   }
 
   render() {
@@ -45,6 +59,8 @@ class PropertyList extends Component {
           />
         ) : (
           <FlatList
+            refreshing={this.state.fetching}
+            onRefresh={() => this.onRefresh()}
             style={styles.list}
             data={this.state.dataSource}
             renderItem={({ item }) => (

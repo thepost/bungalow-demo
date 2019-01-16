@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { StyleSheet, View, Text } from "react-native"
+import { StyleSheet, View, Text, Platform } from "react-native"
 import { WebView } from "react-native-webview"
 
 import { colors, fontSizes, fonts } from "../../design"
@@ -29,7 +29,7 @@ const pStyle = `
         color: ${colors.white};
         font-family: ${fonts.primary};
         font-style: normal;
-        font-size: 42px;
+        font-size: ${Platform.OS === "android" ? 16 : 42}px;
       } 
     </style>
   </head>`
