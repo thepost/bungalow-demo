@@ -5,16 +5,11 @@ import {
   createAppContainer
 } from "react-navigation"
 
-import PlaceholderView from "../components/PlaceholderView"
 import SplashScreen from "../screens/Splash"
 import PropertiesScreen from "../screens/PropertyList"
 import PropertyScreen from "../screens/Property"
 
 import { colors } from "../design"
-
-const DetailsPlaceholder = () => (
-  <PlaceholderView text={"There's currently no more info for this property."} />
-)
 
 const Splash = {
   screen: ({ navigation }) => (

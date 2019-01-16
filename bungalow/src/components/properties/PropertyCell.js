@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     marginBottom: 0,
     borderRadius: 5,
     borderWidth: 0.5,
-    borderColor: colors.lightGrey,
+    borderColor: colors.border,
     backgroundColor: colors.white
   },
   touch: {
