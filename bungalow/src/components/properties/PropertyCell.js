@@ -76,16 +76,23 @@ const PropertyCell = ({ navigation, property }) => {
           navigation.navigate("Details", { propertyID: property.id })
         }
       >
-        <View style={styles.imageFilter}>
-          <View style={styles.textContainer}>
-            <Text style={styles.price}>{price(property.room_prices)}</Text>
-            <Text style={styles.headline}>{property.headline}</Text>
+        <ImageBackground
+          source={{
+            uri: property.images.length > 0 ? property.images[0].sm_url : ""
+          }}
+          style={styles.imageBackground}
+        >
+          <View style={styles.imageFilter}>
+            <View style={styles.textContainer}>
+              <Text style={styles.price}>{price(property.room_prices)}</Text>
+              <Text style={styles.headline}>{property.headline}</Text>
+            </View>
+            <Text style={styles.rooms}>{`Rooms: ${
+              property.total_room_count
+            }`}</Text>
           </View>
-          <Text style={styles.rooms}>{`Rooms: ${
-            property.total_room_count
-          }`}</Text>
-        </View>
-      </ImageBackground>
+        </ImageBackground>
+      </TouchableOpacity>
     </View>
   )
 }
