@@ -41,6 +41,15 @@ const styles = StyleSheet.create({
   }
 })
 
+function minPrice(prices) {
+  const sorted = prices.sort()
+  return sorted[0]
+}
+
+const price = prices => {
+  return prices.length > 0 ? `From $${minPrice(prices)}` : ""
+}
+
 const PropertyCell = ({ property }) => {
   return (
     <View style={styles.container}>
@@ -51,7 +60,7 @@ const PropertyCell = ({ property }) => {
         style={styles.imageBackground}
       >
         <View style={styles.textContainer}>
-          <Text style={styles.title}>From $</Text>
+          <Text style={styles.title}>{price(property.room_prices)}</Text>
           <Text style={styles.headline}>{property.headline}</Text>
         </View>
       </ImageBackground>
