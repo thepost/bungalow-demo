@@ -47,13 +47,13 @@ const styles = StyleSheet.create({
     color: colors.white
   },
   headline: {
-    fontSize: fontSizes.body,
+    fontSize: fontSizes.detail,
     color: colors.darkGrey
   },
   rooms: {
     alignSelf: alignment.flexEnd,
     padding: 8,
-    fontSize: fontSizes.body,
+    fontSize: fontSizes.detail,
     color: colors.darkGrey
   }
 })

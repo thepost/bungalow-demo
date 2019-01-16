@@ -4,7 +4,7 @@ import { colors } from "../design"
 
 const styles = StyleSheet.create({
   line: {
-    margin: 8,
+    margin: 10,
     borderColor: colors.border,
     borderWidth: 0.5
   }

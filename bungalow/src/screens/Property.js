@@ -47,6 +47,14 @@ class Property extends Component {
       })
   }
 
+  prices() {
+    return this.state.dataSource.rooms.reduce((accumulator, room) => {
+      return room.price == null
+        ? ""
+        : `${accumulator}${accumulator.length > 0 ? ", " : ""}$${room.price}`
+    }, "")
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -61,9 +69,12 @@ class Property extends Component {
             <LineSeperator />
             <PhotoThumbView />
             <LineSeperator />
-            <AmenitiesView />
+            <AmenitiesView
+              amenities={this.state.dataSource.amenities}
+              roomQuantity={this.state.dataSource.rooms.length}
+            />
             <LineSeperator />
-            <PriceView />
+            <PriceView prices={this.prices()} />
           </ScrollView>
         )}
       </View>
