@@ -33,27 +33,41 @@ const styles = StyleSheet.create({
   },
   imageFilter: {
     flex: 1,
-    backgroundColor: "rgba(255,255,255,0.4)"
-  },
-  title: {
-    fontSize: fontSizes.title2,
-    color: colors.white
+    backgroundColor: "rgba(255,255,255,0.6)"
   },
   textContainer: {
     flex: 1,
     flexDirection: "column",
     padding: 8,
-    justifyContent: alignment.flexStart,
-    backgroundColor: "rgba(255,255,255,0.7)"
+    justifyContent: alignment.flexStart
+  },
+  price: {
+    fontWeight: "bold",
+    fontSize: fontSizes.title2,
+    color: colors.white
   },
   headline: {
+    fontSize: fontSizes.body,
+    color: colors.darkGrey
+  },
+  rooms: {
+    alignSelf: alignment.flexEnd,
+    padding: 8,
     fontSize: fontSizes.body,
     color: colors.darkGrey
   }
 })
 
+function minPrice(prices) {
+  const sorted = prices.sort()
+  return sorted[0]
+}
+
+const price = prices => {
+  return prices.length > 0 ? `From $${minPrice(prices)}` : ""
+}
+
 const PropertyCell = ({ navigation, property }) => {
-  console.log("PropertyCell propertyID: " + property.id)
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -62,18 +76,16 @@ const PropertyCell = ({ navigation, property }) => {
           navigation.navigate("Details", { propertyID: property.id })
         }
       >
-        <ImageBackground
-          source={{
-            uri: property.images.length > 0 ? property.images[0].sm_url : ""
-          }}
-          style={styles.imageBackground}
-        >
+        <View style={styles.imageFilter}>
           <View style={styles.textContainer}>
-            <Text style={styles.title}>From $</Text>
+            <Text style={styles.price}>{price(property.room_prices)}</Text>
             <Text style={styles.headline}>{property.headline}</Text>
           </View>
-        </ImageBackground>
-      </TouchableOpacity>
+          <Text style={styles.rooms}>{`Rooms: ${
+            property.total_room_count
+          }`}</Text>
+        </View>
+      </ImageBackground>
     </View>
   )
 }
