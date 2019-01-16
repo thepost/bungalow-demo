@@ -1,4 +1,5 @@
 export { default as PlaceholderView } from "./PlaceholderView"
 export { default as LoadingView } from "./LoadingView"
-export { default as PhotoThumbView } from "./PhotoThumbView"
+export { default as PhotoThumbView } from "./photos/PhotoThumbView"
+export { default as PhotoLargeView } from "./photos/PhotoLargeView"
 export { default as LineSeperator } from "./LineSeperator"
