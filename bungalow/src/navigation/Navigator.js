@@ -16,7 +16,7 @@ const Splash = {
     <SplashScreen
       navigation={navigation}
       redirectScreen="Main"
-      duration={500}
+      duration={1500}
     />
   )
 }
