@@ -13,6 +13,8 @@ Recently I've found that RealtimeBoard stikes the right kind of balance between 
 - I've found that wireframes are invaluable for concentrating on how a feature/feature set _should work_, rather than concentrating on more granular details that can be refined as the design changes, such as the colors of buttons.
 - [The wireframe board can be accessed here](https://realtimeboard.com/app/board/o9J_kyAHIZg=/).
 
+<img width="711" alt="screen shot 2019-01-16 at 8 24 15 pm" src="https://user-images.githubusercontent.com/2742942/51289178-32a25400-19cd-11e9-97ba-9262b7a46679.png">
+
 **User Stories**
 
 - This loosely resembles a kanban board. Execpt that the horizontal rows are divided into Epics, Stories (user centric), and Chores (developer centric). The vertical columns are everything related to each Epic.
@@ -20,6 +22,8 @@ Recently I've found that RealtimeBoard stikes the right kind of balance between 
 - There are no explicit columns for _todo, in progress_, and _done_. Cards are in progress and yellow by default, ordered by what's being worked on, and coloured green for done.
 - I'm just trying this out, and so far this process isn't set in stone. But in recent years I've been giving thought into evolving the agile process away from the bloat it's fallen victim to, and this is what I've got so far.
 - [The user story mapping board can be accessed here](https://realtimeboard.com/welcomeonboard/kWt8qjkQzd6bzXlX5VvQQ5weW6fFm448MGTU9PKUVyYjkh5hqqCWCizmWTz1Pvxa).
+
+<img width="968" alt="screen shot 2019-01-16 at 8 23 39 pm" src="https://user-images.githubusercontent.com/2742942/51289196-40f07000-19cd-11e9-97fe-89e6de69bbee.png">
 
 ## Dependency Stack
 
