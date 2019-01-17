@@ -4,9 +4,9 @@ This demos some basic functionality in displaying a list of properties from spec
 
 ## UX
 
-I find speeds up the development process in giving some thought towards the UX upfront, especially in the absense of a design.
+I find it speeds up the development process when giving some thought towards the UX upfront, especially in the absense of a design.
 
-Recently I've found that RealtimeBoard stikes the right kind of balance between lean, agile, and relevant detail, that I've been looking for over years. Their user story mapping board, and wireframing, enables you to achieve clarity towards the build process, without getting _distracted in the complexity_ of the interface.
+Recently I've found that RealtimeBoard stikes the right kind of balance between lean, agile, and relevant detail, that I've been looking for over years. Their user story mapping board, and wireframing, enables you to achieve clarity towards the build process, without getting _distracted in the complexity_ of the agile tool.
 
 **Wireframes**
 
@@ -48,9 +48,9 @@ Recently I've found that RealtimeBoard stikes the right kind of balance between 
 
 4. Originally I was going to use `MobX` for state changes, and loaded it in as a dependency from the start. As it’s similar to `Redux` except with the advantage of less boilerplate.
 
-- An advantage is that there's need for reducers, etc. It does away with needing to call `setState` explicitly, in favour of simply re-rendering every time an **observable** property is detected to change.
+- The main advantage is that there's no need for reducers, etc. It does away with needing to call `setState` explicitly, in favour of simply re-rendering every time an **observable** property is detected to change.
 - It also uses **computed properties**, which is a very Swift-like concept that I’m used to.
-- However, I haven't used it that much in that I'm absolutely comfortable with it, and it seemed to depend on the use of decorators. Decorators are only part of a stage 2 JS proposal, so you have to install it via a babel transpiler plugin, and the more complexity in dependencies for a demo where it needs to be accessed remotely, the more of a risk it becomes.
+- However, I haven't used it that much in that I'm absolutely comfortable with it, and it seemed to depend on the use of decorators. Decorators are only part of a stage 2 JS proposal, so you have to install it via a babel transpiler plugin, and the more complexity in dependencies for this demo's purpose where it needs to be accessed remotely, the more of a risk it becomes.
 - [https://mobx.js.org](https://mobx.js.org)
 
 ## Implementation Notes
