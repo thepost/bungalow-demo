@@ -1,4 +1,4 @@
-# Bungalow React-Native Challenge
+# Bungalow React-Native CHALLENGE
 
 This demos some basic functionality in displaying a list of properties from specific Bungalow API endpoints, for a list of properties and some of the details of a selected property. [The scope is documented here.](https://gist.github.com/duncanmcdowell/8ed554933bc2efceae02293cb0604127)
 
